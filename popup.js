@@ -30,7 +30,7 @@ class QuotodayApp {
                 this.currentBackground = result.currentBackground;
             }
         } catch (error) {
-            console.error('Failed to load stored state:', error);
+            // Silently handle storage errors in production
         }
     }
 
@@ -42,7 +42,7 @@ class QuotodayApp {
                 currentBackground: this.currentBackground
             });
         } catch (error) {
-            console.error('Failed to save state:', error);
+            // Silently handle storage errors in production
         }
     }
 
@@ -70,7 +70,7 @@ class QuotodayApp {
             const data = await response.json();
             this.quotes = data.quotes;
         } catch (error) {
-            console.error('Failed to load local quotes:', error);
+            // Fallback to hardcoded quote if local quotes fail
             this.quotes = [
                 {
                     text: "The only way to do great work is to love what you do.",
@@ -95,7 +95,7 @@ class QuotodayApp {
             this.startCooldownTimer();
             await this.saveState();
         } catch (error) {
-            console.error('Failed to fetch quote from API:', error);
+            // Gracefully fallback to local quotes on API failure
             await this.displayRandomLocalQuote();
         }
     }
@@ -157,8 +157,18 @@ class QuotodayApp {
         }
         
         const data = await response.json();
-        // ZenQuotes returns an array, so get first item
+        
+        // Validate API response
+        if (!Array.isArray(data) || data.length === 0) {
+            throw new Error('Invalid API response format');
+        }
+        
         const quote = data[0];
+        
+        // Validate quote data
+        if (!quote.q || !quote.a) {
+            throw new Error('Invalid quote data structure');
+        }
         
         return {
             content: quote.q, // quote text
@@ -242,8 +252,12 @@ class QuotodayApp {
         quoteAuthor.style.opacity = '0';
 
         setTimeout(() => {
-            quoteText.textContent = this.currentQuote.text;
-            quoteAuthor.textContent = this.currentQuote.author;
+            // Sanitize and limit quote length for display
+            const sanitizedText = this.sanitizeText(this.currentQuote.text, 300);
+            const sanitizedAuthor = this.sanitizeText(this.currentQuote.author, 50);
+            
+            quoteText.textContent = sanitizedText;
+            quoteAuthor.textContent = sanitizedAuthor;
             
             quoteText.style.opacity = '1';
             quoteAuthor.style.opacity = '1';
@@ -259,7 +273,7 @@ class QuotodayApp {
             await navigator.clipboard.writeText(textToCopy);
             this.showCopyFeedback();
         } catch (error) {
-            console.error('Failed to copy quote:', error);
+            // Fallback to alternative copy method
             this.fallbackCopy(textToCopy);
         }
     }
@@ -287,10 +301,26 @@ class QuotodayApp {
             document.execCommand('copy');
             this.showCopyFeedback();
         } catch (error) {
-            console.error('Fallback copy failed:', error);
+            // Copy operation failed silently
         }
         
         document.body.removeChild(textArea);
+    }
+
+    // Utility methods
+    sanitizeText(text, maxLength = 1000) {
+        if (!text || typeof text !== 'string') return '';
+        
+        // Remove any potentially harmful characters and trim
+        const sanitized = text
+            .replace(/[<>]/g, '') // Remove potential HTML tags
+            .replace(/\s+/g, ' ') // Normalize whitespace
+            .trim();
+            
+        // Limit length
+        return sanitized.length > maxLength 
+            ? sanitized.substring(0, maxLength - 3) + '...'
+            : sanitized;
     }
 
     // Sharing methods

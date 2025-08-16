@@ -29,5 +29,7 @@
       "resources": ["quotes.json"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "author": "KJR Labs",
+  "homepage_url": "https://github.com/KshitijKoranne/quotoday-chrome"
 }
