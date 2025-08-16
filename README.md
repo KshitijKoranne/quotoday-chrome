@@ -49,7 +49,7 @@ In our fast-paced digital world, we all need moments of inspiration and motivati
 - **Spread Positivity** - Help others discover wisdom and motivation
 
 ### 🔄 **Seamless Experience**
-- **Works Offline** - Local quote collection ensures you're never without inspiration
+- **Offline Fallback** - 50+ curated quotes when API is unavailable
 - **Memory Smart** - Remembers your current quote across browser sessions
 - **Lightning Fast** - Loads in under 100ms, no waiting around
 
@@ -112,7 +112,7 @@ In our fast-paced digital world, we all need moments of inspiration and motivati
 | ⚡ **Instant Loading** | Get inspired immediately, no waiting |
 | 🔄 **Smart Memory** | Picks up where you left off |
 | 📱 **Social Sharing** | Spread inspiration with one click |
-| 🌐 **Works Offline** | Always available, even without internet |
+| 🌐 **Offline Fallback** | 50+ curated quotes when internet is unavailable |
 | 🎯 **Curated Content** | Only the best quotes from verified sources |
 
 ---
