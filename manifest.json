@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Quotoday",
+  "version": "1.0.0",
+  "description": "Get inspiring quotes with one click - simple and distraction-free motivation boost.",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://zenquotes.io/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Quotoday - Daily Quotes",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["quotes.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
