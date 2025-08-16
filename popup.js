@@ -54,7 +54,7 @@ class QuotodayApp {
         if (this.currentQuote && timeSinceLastCall < this.apiCooldown) {
             // Restore the same background
             if (this.currentBackground) {
-                document.body.style.background = this.currentBackground;
+                document.body.style.setProperty('background', this.currentBackground, 'important');
             }
             this.displayQuote();
             this.startCooldownTimer();
@@ -138,7 +138,7 @@ class QuotodayApp {
         ];
         
         const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
-        body.style.background = randomGradient;
+        body.style.setProperty('background', randomGradient, 'important');
         this.currentBackground = randomGradient;
     }
 

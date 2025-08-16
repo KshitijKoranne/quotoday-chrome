@@ -4,35 +4,29 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 280px;
+    height: 360px;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #333;
-    width: 280px;
-    height: 360px;
-    margin: 0;
-    padding: 0;
     overflow-y: auto;
     overflow-x: hidden;
-}
-
-.container {
-    padding: 0 0 60px 0;
-    min-height: 360px;
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    background: inherit;
+    min-height: 330px;
 }
 
 .header {
     text-align: center;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    margin-bottom: 20px;
 }
 
 .header h1 {
@@ -42,8 +36,23 @@ body {
     letter-spacing: 1px;
     font-family: 'Pacifico', cursive;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin: 0;
 }
 
+
+.quote-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 20px 10px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 
 .quote-text {
     font-size: 15px;
@@ -52,14 +61,8 @@ body {
     text-align: center;
     font-style: italic;
     margin-bottom: 15px;
-    min-height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
     font-weight: 500;
-    z-index: 5;
-    position: relative;
 }
 
 .quote-text::before {
@@ -84,8 +87,6 @@ body {
     color: white;
     font-weight: 600;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
-    z-index: 5;
-    position: relative;
 }
 
 .quote-author::before {
@@ -95,19 +96,15 @@ body {
 .buttons {
     display: flex;
     gap: 8px;
-    position: absolute;
-    bottom: 55px;
-    left: 15px;
-    right: 15px;
-    z-index: 10;
+    margin-bottom: 15px;
 }
 
 .btn {
     flex: 1;
-    padding: 10px 12px;
+    padding: 8px 10px;
     border: none;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -154,42 +151,6 @@ body {
     pointer-events: none;
 }
 
-/* Background image overlay for text readability */
-.quote-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.4) 0%,
-        rgba(0, 0, 0, 0.6) 50%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
-    border-radius: 12px;
-    z-index: 1;
-}
-
-/* Default background for quote container */
-.quote-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.15);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-radius: 12px;
-    padding: 50px 20px 20px 20px;
-    margin: 15px;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
 
 /* Copy feedback */
 .copied {
@@ -206,11 +167,6 @@ body {
     display: flex;
     justify-content: center;
     gap: 10px;
-    position: absolute;
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    z-index: 10;
 }
 
 .share-btn {
