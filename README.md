@@ -9,7 +9,7 @@
   
   [![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white)](https://chrome.google.com/webstore)
   [![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge)](https://github.com/KshitijKoranne)
-  [![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+  [![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
   
 </div>
 
@@ -65,14 +65,6 @@ In our fast-paced digital world, we all need moments of inspiration and motivati
 *No signup required. No data collection. Just pure inspiration.*
 
 ---
-
-## 📱 Screenshots
-
-<div align="center">
-  <img src="icon.png" alt="Quotoday in Action" width="100" height="100">
-  
-  *Beautiful quotes with stunning gradient backgrounds*
-</div>
 
 ### 🎭 **Sample Quotes You'll Discover:**
 
