@@ -26,7 +26,7 @@ The limited data we store is used solely to:
 
 ### Third-Party Services
 - **ZenQuotes API:** We fetch quotes from zenquotes.io. Please refer to their privacy policy for their data practices
-- **Social Sharing:** When you share quotes, you're redirected to the respective social platforms (Twitter, Facebook, LinkedIn, WhatsApp)
+- **Social Sharing:** When you share quotes, you're redirected to the respective social platforms (Twitter, Facebook, WhatsApp)
 
 ### Data Security
 - All data remains on your local device

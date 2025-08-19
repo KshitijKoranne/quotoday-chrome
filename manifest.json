@@ -1,11 +1,10 @@
 {
   "manifest_version": 3,
   "name": "Quotoday",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get inspiring quotes with one click - simple and distraction-free motivation boost.",
   "permissions": [
-    "storage",
-    "tabs"
+    "storage"
   ],
   "host_permissions": [
     "https://zenquotes.io/*"
@@ -24,12 +23,6 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "web_accessible_resources": [
-    {
-      "resources": ["quotes.json"],
-      "matches": ["<all_urls>"]
-    }
-  ],
   "author": "KJR Labs",
   "homepage_url": "https://github.com/KshitijKoranne/quotoday-chrome",
   "support_url": "mailto:kjrlabs9@gmail.com"

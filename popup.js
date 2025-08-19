@@ -218,7 +218,6 @@ class QuotodayApp {
         // Sharing buttons
         const shareTwitterBtn = document.getElementById('shareTwitterBtn');
         const shareFacebookBtn = document.getElementById('shareFacebookBtn');
-        const shareLinkedInBtn = document.getElementById('shareLinkedInBtn');
         const shareWhatsAppBtn = document.getElementById('shareWhatsAppBtn');
 
         nextBtn.addEventListener('click', () => this.handleNextQuote());
@@ -227,7 +226,6 @@ class QuotodayApp {
         // Sharing event listeners
         shareTwitterBtn.addEventListener('click', () => this.shareToTwitter());
         shareFacebookBtn.addEventListener('click', () => this.shareToFacebook());
-        shareLinkedInBtn.addEventListener('click', () => this.shareToLinkedIn());
         shareWhatsAppBtn.addEventListener('click', () => this.shareToWhatsApp());
     }
 
@@ -342,11 +340,6 @@ class QuotodayApp {
         chrome.tabs.create({ url });
     }
 
-    shareToLinkedIn() {
-        const text = this.getShareText();
-        const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://chrome.google.com/webstore/detail/quotoday')}&summary=${encodeURIComponent(text)}`;
-        chrome.tabs.create({ url });
-    }
 
     shareToWhatsApp() {
         const text = this.getShareText();
